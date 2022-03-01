@@ -1,0 +1,47 @@
+---
+
+model:
+    model_name: tf_efficientnet_b3_ns
+    image_size : 300
+    num_classes : 2
+    batch_size : 8
+    target_fields: label
+    input_field  : img_name
+    pretrained : True
+    lr : 1e-3
+    epochs : 20
+    num_workers : {num_workers}
+
+optimizer:
+    name : Adam
+
+scheduler:
+    name: ReduceLROnPlateau
+    factor   : 0.2
+    patience : 2
+    eps      : 1e-6
+
+model_log:
+    model_log   : '{model_name}_{image_size}'
+    model_label : '{model_name}_{image_size}_b{batch_size}'
+dir:
+    dir_model  : '{dir_model}'
+    dir_home   : '{dir_home}'
+
+    train_images_root  : '{dir_train}'
+    val_images_root    : '{dir_train}'
+    test_images_root   : '{dir_train}'
+    predict_images_root: '{dir_train}'
+
+
+
+    train_file    : '{dir_file}/train_file.csv'
+    val_file      : '{dir_file}/val_file.csv'
+    test_file     : '{dir_file}/test_file.csv'
+    predict_file  : '{dir_file}/predict_file.csv'
+
+
+    dir_log    : '{dir_log}'
+    dir_file   : '{dir_file}'
+    input_file : '{dir_file}/input_file.csv'
+    output_file: '{dir_file}/output_file.csv'

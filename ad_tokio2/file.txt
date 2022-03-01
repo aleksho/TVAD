@@ -1,0 +1,2 @@
+source .env_tvad/bin/activate
+python TVAD/ad_tokio2/stage2_fromsql_list.py

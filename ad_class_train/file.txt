@@ -1,0 +1,5 @@
+watch -n 5 nvidia-smi
+
+kill -9 30192
+
+/usr/local/cuda/bin/nvcc --version
